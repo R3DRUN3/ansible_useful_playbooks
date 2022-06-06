@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    vcenter_server: "192.168.243.95"
+    vcenter_username: "my@vsphere.local"
+    vcenter_password: "insert_vcenter_password_here"
+    datacenter_name: "LAB"
+    vcenter_datastore: "MY_DATASTORE"
+    cluster_name: "LABORATORY"
+    vm_template: "probe_base_template"
+    provisioned_vm_name: "ansible_provosioned_vm"
+  tasks:
+  - name: DEPLOY VM FROM PROBE TEMPLATE
+    community.vmware.vmware_guest:
+      hostname: "{{ vcenter_server }}"
+      username: "{{ vcenter_username }}"
+      password: "{{ vcenter_password }}"
+      datacenter: "{{ datacenter_name }}"
+      resource_pool: "{{ vcenter_datastore }}" # MANDATORY !!!
+      cluster: "{{ cluster_name }}"
+      validate_certs: no
+      folder: /{{ datacenter_name }}/vm/MY_VMS/TEST_VM_PROVISIONING
+      name: "{{ provisioned_vm_name }}"
+      template: "{{ vm_template }}"
+      state: poweredon
+      wait_for_ip_address: true
+    delegate_to: localhost
+    register: deploy
