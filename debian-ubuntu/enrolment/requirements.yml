@@ -1,0 +1,11 @@
+# Install a role from the Ansible Galaxy
+#- src: jnv.unattended-upgrades
+- src: gantsign.keyboard
+- src: ypsman.ipv6_disable
+- src: gantsign.visual-studio-code
+- src: gantsign.oh-my-zsh
+- src: gantsign.golang
+- src: gantsign.postman
+- src: xanmanning.sublime
+
+
