@@ -1,4 +1,6 @@
 # ansible_useful_playbooks
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Ansible Playbook collection for enrollment and machine configurations 🤖🤖🤖
 ## Abstract 
 
